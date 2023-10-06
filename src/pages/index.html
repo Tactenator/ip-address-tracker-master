@@ -13,8 +13,8 @@
   crossorigin=""></script>
   <title>Frontend Mentor | IP Address Tracker</title>
 </head>
-<body class="flex flex-col">
-  <div class="text-center p-20 text-white relative z-0" style="background-image: url('../../images/pattern-bg-desktop.png');">
+<body class="relative">
+  <div class="text-center p-24 text-white z-0" style="background-image: url('../../images/pattern-bg-desktop.png');">
     <h1 class="text-3xl">IP Address Tracker</h1>
 
     <div class="flex flex-row justify-center w-full">
@@ -22,34 +22,35 @@
       <button class="bg-black text-[#fff] px-4 rounded-r-lg"> > </button>
     </div>
   </div>
-  <div class="text-black w-4/5 z-10 absolute top-60 left-1/2 px-3 py-8 
+  <div class="text-black w-4/5 z-10 absolute top-68 left-1/2 px-3 py-5 
   transform -translate-x-1/2 -translate-y-1/2 rounded-xl flex flex-row bg-white justify-around">
-    <div class="">
-      <h4 class="text-dark-grey text-xs font-bold">IP Address</h4>
-      <p id="ip-address"> - </p>
+    <div class="p-7">
+      <h4 class="text-dark-grey text-sm font-bold">IP Address</h4>
+      <p id="ip-address" class="font-bold text-2xl"> - </p>
     </div>
-    <div class="">
-      <h4 class="text-dark-grey text-xs font-bold">Location</h4>
-      <p id="location"> - </p>
+    <div class="p-7">
+      <h4 class="text-dark-grey text-sm font-bold">Location</h4>
+      <p id="location" class="font-bold text-2xl"> - </p>
     </div>
-    <div class="">
-      <h4 class="text-dark-grey text-xs font-bold">Timezone</h4>
-      <p id="timezone"> - </p>
+    <div class="p-7">
+      <h4 class="text-dark-grey text-sm font-bold">Timezone</h4>
+      <p id="timezone" class="font-bold text-2xl"> - </p>
     </div>
 
-    <div class="">
-      <h4 class="text-dark-grey text-xs font-bold">ISP</h4>
-      <p id="isp"> - </p>
+    <div class="p-7">
+      <h4 class="text-dark-grey text-sm font-bold">ISP</h4>
+      <p id="isp" class="font-bold text-2xl"> - </p>
     </div>  
   </div>
 
-  <div id="map" class="h-80 z-0"></div>
+  <div id="map" class="h-[27.2rem] z-0"></div>
   <script>
     const button = document.querySelector('button')
     const apiKey = 'at_c5Ta0lC4KUjeSLBqCsaHqHTj8fiRZ'; 
     const apiURL = 'https://geo.ipify.org/api/v1?';
 
     const ipDiv = document.getElementById('ip-address')
+    ipDiv.innerHTML = '8.8.8.8'
 
     const map = L.map('map').setView([0, 0], 3);
 
@@ -73,6 +74,8 @@
       }
         );
     }
+
+    fetchIP()
 
     button.addEventListener('click', () => {
       fetchIP()
