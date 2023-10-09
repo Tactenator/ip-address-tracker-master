@@ -13,11 +13,10 @@
   crossorigin=""></script>
   <title>Frontend Mentor | IP Address Tracker</title>
 </head>
-<body class="relative">
-  <div class="text-center p-24 text-white z-0" style="background-image: url('../../images/pattern-bg-desktop.png');">
-    <h1 class="text-3xl">IP Address Tracker</h1>
-
-    <div class="flex flex-row justify-center w-full">
+<body class="relative h-full w-full">
+  <div class="text-center p-24 text-white z-0 flex flex-col gap-5" style="background-image: url('../../images/pattern-bg-desktop.png');">
+    <h1 class="text-3xl text-[#fff] font-bold">IP Address Tracker</h1>
+    <div class="flex flex-row justify-center w-full mb-10">
       <input class="w-1/3 p-3 rounded-l-lg" type="text" placeholder="Search for any IP address or domain">
       <button class="bg-black text-[#fff] px-4 rounded-r-lg"> > </button>
     </div>
@@ -43,7 +42,8 @@
     </div>  
   </div>
 
-  <div id="map" class="h-[27.2rem] z-0"></div>
+  <div id="map" class="h-full z-0"></div>
+
   <script>
     const button = document.querySelector('button')
     const apiKey = 'at_c5Ta0lC4KUjeSLBqCsaHqHTj8fiRZ'; 
