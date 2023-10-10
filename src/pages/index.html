@@ -51,7 +51,6 @@
     const apiURL = 'https://geo.ipify.org/api/v1?';
 
     const ipDiv = document.getElementById('ip-address')
-    ipDiv.innerHTML = '8.8.8.8'
 
     const map = L.map('map').setView([0, 0], 3);
 
@@ -61,6 +60,7 @@
     tiles.addTo(map)
 
     async function fetchIP() {
+      ipDiv.value = '8.8.8.8'
       ip = document.querySelector('input').value
       if(ip != undefined) {
         const newUrl = apiURL + 'apiKey=' + apiKey + '&ipAddress=' + ip;
@@ -68,6 +68,7 @@
         .then((response) => response.json())
         .then((json) => {
           map.setView([json.location.lat, json.location.lng], 14)
+          L.marker([json.location.lat, json.location.lng]).addTo(map)
           console.log(json)
           ip != undefined ? document.getElementById('ip-address').innerHTML = ip : 
           document.getElementById('ip-address').innerHTML = ' - '
@@ -80,7 +81,6 @@
  
     }
 
-    fetchIP()
 
     button.addEventListener('click', () => {
       fetchIP()
