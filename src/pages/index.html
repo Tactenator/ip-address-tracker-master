@@ -62,18 +62,22 @@
 
     async function fetchIP() {
       ip = document.querySelector('input').value
-      const newUrl = apiURL + 'apiKey=' + apiKey + '&ipAddress=' + ip;
-      fetch(newUrl)
-      .then((response) => response.json())
-      .then((json) => {
-        map.setView([json.location.lat, json.location.lng], 14)
-        console.log(json)
-        document.getElementById('ip-address').innerHTML = ip
-        document.getElementById('location').innerHTML = json.location.city
-        document.getElementById('timezone').innerHTML = 'UTC ' + json.location.timezone
-        document.getElementById('isp').innerHTML = json.isp
+      if(ip != undefined) {
+        const newUrl = apiURL + 'apiKey=' + apiKey + '&ipAddress=' + ip;
+        fetch(newUrl)
+        .then((response) => response.json())
+        .then((json) => {
+          map.setView([json.location.lat, json.location.lng], 14)
+          console.log(json)
+          ip != undefined ? document.getElementById('ip-address').innerHTML = ip : 
+          document.getElementById('ip-address').innerHTML = ' - '
+          document.getElementById('location').innerHTML = json.location.city
+          document.getElementById('timezone').innerHTML = 'UTC ' + json.location.timezone
+          document.getElementById('isp').innerHTML = json.isp
       }
         );
+      }
+ 
     }
 
     fetchIP()
